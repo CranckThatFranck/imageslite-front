@@ -1,22 +1,14 @@
-'use client';
+import { Template } from "@/components";
+import { ImageCard } from "@/components";
 
 export default function GaleriaPage() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-          Galeria de Imagens
-        </h1>
-        
-        {/* Aqui será implementada a galeria */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
-            <p className="text-gray-600 dark:text-gray-400">
-              Galeria será carregada aqui...
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
+    <Template>
+        <section className="grid grid-cols-3 gap-8">
+        <ImageCard nome="Montanha" dataUpload="04/02/2026" tamanho="2mb" src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8="/>
+        <ImageCard src="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-fall-nature-scenery-free-image.jpeg?w=2210&quality=70"/>
+        <ImageCard />
+        </section>
+    </Template>
   );
 }
