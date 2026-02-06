@@ -7,9 +7,9 @@ export const Template: React.FC<TemplateProps> = ({children, loading}: TemplateP
     return (
         <>
             <Header />
-            <div className="animate-pulse container mx-auto mt-8 px-4">    
+            <div className={`${loading ? 'animate-pulse' : ''} container mx-auto mt-8 px-4`}>    
                 <RenderIF condition={loading}>
-                    <div className="text-center"> 
+                    <div className="flex items-center justify-center min-h-[40vh]"> 
                         <Loading />
                     </div>
                 </RenderIF>
