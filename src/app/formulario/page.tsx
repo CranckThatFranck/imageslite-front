@@ -1,56 +1,53 @@
 'use client';
 
+import { Template, InputText, Button } from "@/components";
+import Link from "next/link";
+
 export default function FormularioPage() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">
-          Formulário de Contato
-        </h1>
-        <form className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="name">
-                Nome
-            </label>
-            <input
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Seu nome"
-            />
+    <Template>
+      <section className="flex flex-col items-center justify-center my-5">
+        <h5 className="mt-3 mb-10 text-3x1 font-extrabold tracking-tight text-gray-900">Nova Imagem</h5>
+        <form>
+          <div className="grid grid-cols-1">
+            <label className="block text-sm font-medium leading-6 text-gray-700">Name: *</label>
+            <InputText placeholder="Nome da Imagem"/>
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="email">
-                Email
-            </label>
-            <input
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Seu email"
-            />
+
+          <div className="mt-5 grid grid-cols-1">
+            <label className="block text-sm font-medium leading-6 text-gray-700">Tags: *</label>
+            <InputText placeholder="Tags separadas por ,  "/>
+          </div>
+
+          <div className="mt-5 grid grid-cols-1">
+            <label className="block text-sm font-medium leading-6 text-gray-700">Imagem: *</label>
+            <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+              <div className="text-center ">
+                <svg className="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path fillRule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clipRule="evenodd" />
+                </svg>
+
+                <div className="mt-4 flex text-sm leading-6 text-gray-600 ">
+                  <label className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600">
+                    <span>Enviar imagem</span>
+                    <input type="file" name="file-upload" className="sr-only" />
+                  </label>
+                </div>
+              </div>
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="message">
-                    Mensagem
-                </label>
-                <textarea
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    id="message"
-                    name="message"
-                    placeholder="Sua mensagem"
-                />
-            </div>
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="submit"
-            >
-                Enviar
-            </button>
+          </div>
+
+        <div className="mt-5 flex items-center justify-end gap-x-6">
+          
+          <Button color="blue" label="Salvar" type="submit" />
+          <Link href="/galeria">
+            <Button color="red" label="Cancelar" type="button" />
+          </Link>
+          
+        </div>
+
         </form>
-      </div>
-    </main>
+      </section>
+    </Template>
   );
 }
