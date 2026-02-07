@@ -63,16 +63,19 @@ imagelite/
 - Aplica estilos globais através de `globals.css`
 - Renderiza conteúdo das páginas filhas
 
-### **2. Página Inicial (`page.tsx`)**
-- Componente principal que será expandido com funcionalidades
-- Atualmente serve como ponto de entrada da aplicação
-- Será integrada com componentes para:
-  - Formulário de upload de imagens
-  - Galeria de imagens
-  - Barra de busca avançada
-  - Cards de imagem com metadados
+### **2. Páginas (`src/app`)**
+- **Home (`page.tsx`)**: ponto de entrada com chamadas para template e navegação
+- **Formulario (`formulario/page.tsx`)**: formulário de upload com validação via Formik
+- **Galeria (`galeria/page.tsx`)**: listagem de imagens renderizadas como cards
 
-### **3. Estilos Globais (`globals.css`)**
+### **3. Componentes reutilizáveis (`src/components`)**
+- **Template (`Template.tsx`)**: estrutura base de layout com header e container
+- **ImageCard (`ImageCard.tsx`)**: card para exibir imagem, metadados e ações
+- **Button (`button/Button.tsx`)**: botão estilizado com variações de cor
+- **InputText (`input/InputText.tsx`)**: campo de texto controlado para formulários
+- **Barrels (`index.ts`)**: exportações centralizadas de componentes
+
+### **4. Estilos Globais (`globals.css`)**
 - Importa todas as camadas do Tailwind CSS
 - Define variáveis CSS customizadas (--foreground-rgb, --background-rgb)
 - Implementa tema light/dark automático

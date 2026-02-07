@@ -14,7 +14,7 @@ const formScheme: FormProps = { name: '', tags: '', file: '' };
 
 export default function FormularioPage() {
 
-  const form = useFormik({
+  const formik = useFormik({
     initialValues: formScheme,
     onSubmit: (dados: FormProps) => {
       console.log(dados);
@@ -25,15 +25,15 @@ export default function FormularioPage() {
     <Template>
       <section className="flex flex-col items-center justify-center my-5">
         <h5 className="mt-3 mb-10 text-3x1 font-extrabold tracking-tight text-gray-900">Nova Imagem</h5>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <div className="grid grid-cols-1">
             <label className="block text-sm font-medium leading-6 text-gray-700">Name: *</label>
-            <InputText placeholder="Nome da Imagem"/>
+            <InputText id="name" onChange={formik.handleChange} placeholder="Nome da Imagem"/>
           </div>
 
           <div className="mt-5 grid grid-cols-1">
             <label className="block text-sm font-medium leading-6 text-gray-700">Tags: *</label>
-            <InputText placeholder="Tags separadas por ,  "/>
+            <InputText id="tags" onChange={formik.handleChange} placeholder="Tags separadas por ,  "/>
           </div>
 
           <div className="mt-5 grid grid-cols-1">
@@ -47,7 +47,7 @@ export default function FormularioPage() {
                 <div className="mt-4 flex text-sm leading-6 text-gray-600 ">
                   <label className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600">
                     <span>Enviar imagem</span>
-                    <input type="file" name="file-upload" className="sr-only" />
+                    <input type="file" id="file" name="file-upload" className="sr-only" />
                   </label>
                 </div>
               </div>
