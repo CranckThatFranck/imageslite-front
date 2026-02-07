@@ -2,8 +2,25 @@
 
 import { Template, InputText, Button } from "@/components";
 import Link from "next/link";
+import { useFormik } from 'formik'
+
+interface FormProps{
+  name: string;
+  tags: string;
+  file: any;
+}
+
+const formScheme: FormProps = { name: '', tags: '', file: '' };
 
 export default function FormularioPage() {
+
+  const form = useFormik({
+    initialValues: formScheme,
+    onSubmit: (dados: FormProps) => {
+      console.log(dados);
+    } 
+  })
+
   return (
     <Template>
       <section className="flex flex-col items-center justify-center my-5">
