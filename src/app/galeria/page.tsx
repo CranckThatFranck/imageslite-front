@@ -14,11 +14,19 @@ export default function GaleriaPage() {
   const [extension, setExtension] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  async function searchImages(){
+  async function searchImages() {
     setLoading(true);
-    const result = await useService.buscar(query, extension);
-    setImages(result);
-    setLoading(false);
+    try {
+      const result = await useService.buscar(query, extension);
+      const normalized = Array.isArray(result)
+        ? result
+        : Array.isArray((result as { content?: Image[] })?.content)
+        ? (result as { content?: Image[] }).content ?? []
+        : [];
+      setImages(normalized);
+    } finally {
+      setLoading(false);
+    }
   }
 
   function renderImageCard(image: Image){
@@ -49,6 +57,8 @@ export default function GaleriaPage() {
             <option value="PNG">PNG</option>
             <option value="JPEG">JPEG</option>
             <option value="GIF">GIF</option>
+            <option value="WEBP">WEBP</option>
+            <option value="BMP">BMP</option>
           </select>
           <Button color="blue" label="Buscar" onClick={searchImages} />
           <Link href="/formulario">
